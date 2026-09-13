@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A.K Solutions — thoughtful solutions are on their way."
+    />
+    <meta name="theme-color" content="#f5f4ef" />
+    <title>A.K Solutions — Coming Soon</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
+
+      :root {
+        --ink: #17281f;
+        --muted: #607067;
+        --paper: #f5f4ef;
+        --accent: #e6532e;
+        --leaf: #b9d74a;
+        --line: rgba(23, 40, 31, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body { min-height: 100%; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Manrope", Arial, sans-serif;
+      }
+
+      main {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        padding: 29px clamp(24px, 5vw, 76px) 32px;
+        isolation: isolate;
+      }
+
+      main::before,
+      main::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        border-radius: 999px;
+        filter: blur(1px);
+      }
+
+      main::before {
+        width: min(44vw, 650px);
+        aspect-ratio: 1;
+        top: -20%;
+        right: -8%;
+        background: var(--leaf);
+        opacity: 0.75;
+        animation: drift-top 16s ease-in-out infinite alternate;
+      }
+
+      main::after {
+        width: min(31vw, 480px);
+        aspect-ratio: 1;
+        bottom: -20%;
+        left: -10%;
+        background: #f3bb54;
+        opacity: 0.7;
+        animation: drift-bottom 19s ease-in-out infinite alternate;
+      }
+
+      header, footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        letter-spacing: -0.05em;
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      .mark {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        color: var(--paper);
+        background: var(--ink);
+        border-radius: 50%;
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: -0.12em;
+      }
+
+      .status, footer {
+        color: var(--muted);
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .status::before {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin-right: 8px;
+        content: "";
+        background: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(230, 83, 46, 0.13);
+      }
+
+      .hero {
+        align-self: center;
+        max-width: 1000px;
+        padding: clamp(50px, 9vh, 104px) 0;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 27px;
+        color: var(--accent);
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 34px;
+        height: 1px;
+        content: "";
+        background: currentColor;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin: 0;
+        font-size: clamp(4rem, 9.75vw, 9.2rem);
+        font-weight: 700;
+        letter-spacing: -0.085em;
+        line-height: 0.84;
+      }
+
+      h1 em {
+        display: block;
+        margin: 0.04em 0 0 0.3em;
+        color: var(--accent);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 0.84em;
+        font-weight: 600;
+        letter-spacing: -0.075em;
+      }
+
+      .intro {
+        max-width: 360px;
+        margin: 41px 0 0 clamp(0px, 15vw, 154px);
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.7;
+      }
+
+      footer {
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .orbit {
+        position: absolute;
+        z-index: -1;
+        width: min(38vw, 540px);
+        aspect-ratio: 1;
+        right: 13%;
+        bottom: 8%;
+        border: 1px solid rgba(23, 40, 31, 0.15);
+        border-radius: 50%;
+        animation: orbit-drift 22s ease-in-out infinite alternate;
+      }
+
+      .orbit::before, .orbit::after {
+        position: absolute;
+        content: "";
+        border-radius: 50%;
+      }
+
+      .orbit::before {
+        width: 21%;
+        aspect-ratio: 1;
+        top: 6%;
+        left: 6%;
+        background: var(--ink);
+        animation: pulse 5s ease-in-out infinite;
+      }
+
+      .orbit::after {
+        width: 7%;
+        aspect-ratio: 1;
+        right: 6%;
+        bottom: 20%;
+        background: var(--accent);
+        animation: pulse 4s 1s ease-in-out infinite;
+      }
+
+      @keyframes drift-top {
+        from { transform: translate3d(0, 0, 0) scale(1); }
+        to { transform: translate3d(-7vw, 9vh, 0) scale(1.08); }
+      }
+
+      @keyframes drift-bottom {
+        from { transform: translate3d(0, 0, 0) scale(1); }
+        to { transform: translate3d(8vw, -7vh, 0) scale(1.12); }
+      }
+
+      @keyframes orbit-drift {
+        from { transform: translate3d(0, 0, 0) rotate(0deg); }
+        to { transform: translate3d(-3vw, -5vh, 0) rotate(12deg); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.18); }
+      }
+
+      @media (max-width: 650px) {
+        main { padding: 23px 24px 24px; }
+        .status { font-size: 8px; }
+        .hero { padding: 70px 0; }
+        h1 { font-size: clamp(3.8rem, 19vw, 6.7rem); }
+        .intro { margin: 36px 0 0; font-size: 14px; }
+        .orbit { width: 64vw; right: -14%; bottom: 14%; }
+        footer { font-size: 8px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="wordmark"><span class="mark">AK</span><span>A.K Solutions</span></div>
+        <span class="status">In the works</span>
+      </header>
+
+      <section class="hero" aria-labelledby="headline">
+        <p class="eyebrow">A fresh perspective</p>
+        <h1 id="headline">Good things<br /><em>coming soon.</em></h1>
+        <p class="intro">A.K Solutions is building something thoughtful. We look forward to sharing it with you.</p>
+      </section>
+
+      <div class="orbit" aria-hidden="true"></div>
+
+      <footer>
+        <span>© 2026 A.K Solutions</span>
+        <span>Stay tuned</span>
+      </footer>
+    </main>
+  </body>
+</html>
